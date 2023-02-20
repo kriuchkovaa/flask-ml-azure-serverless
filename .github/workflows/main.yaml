@@ -1,0 +1,28 @@
+name: Introduction to CI
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup virtual environment
+        run: make setup
+
+      - name: Install the dependencies
+        run: make install
+
+      - name: Lint the code
+        run: make lint
+
+      - name: Test the code
+        run: make test
+
+      - name: Install Lint
+        run: make all 
